@@ -1,3 +1,6 @@
 <% @posts.each do |post| %>
-  <div><%= post.title %></div>
+  <!-- <div><a href='<%= "/posts/#{post.id}" %>'><%= post.title %></div> <!-- sans url helper --> -->
+  <!-- <div><%= link_to post.title, "/posts/#{post.id}" %></div> <!-- rids of a-tag, but hard-coded path & string interp. --> -->
+  <!-- <div><%= link_to post.title, post_path(post.id) %></div> <!-- still too verbose calling post.id --> -->
+  <div><%= link_to post.title, post_path(post) %></div> <!-- rails magic only takes object -->
 <% end %>
